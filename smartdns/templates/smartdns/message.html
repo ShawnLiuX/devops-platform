@@ -1,0 +1,32 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">Message</h1>
+          <h3 style="text-align:center">消息</h3>
+          <hr>
+          <p style="text-align:center">{{ message }}</p>
+          <p style="text-align: center"><a href="javascript:" onclick="history.go(-2);" >返回</a></p>
+
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

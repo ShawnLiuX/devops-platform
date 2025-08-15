@@ -1,0 +1,53 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">Record</h1>
+          <h3 style="text-align:center">记录</h3>
+          <a href="{% url 'add_record_null' %}"><button type="button" class="btn btn-default">增加记录</button></a><br><br>
+         
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th><font color="blue">域名</font></th>
+                <th><font color="blue">视图</font></th>
+              </tr>
+            </thead>
+            <tbody>
+
+            {% for key, value in results.items %}
+              <tr>
+                <td><strong>{{ key }}</strong></td>
+                <td><strong>
+                    {% for r in value %}
+                        <a href="{% url 'record_detail' key.id r.0.id %}">{{ r.0 }}</a> <b color="red">{{ r.1 }}</b>&nbsp 
+                    {% endfor %}
+                    </strong>
+                </td>
+              </tr>
+            {% endfor %}
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

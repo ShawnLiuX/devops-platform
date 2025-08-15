@@ -1,0 +1,64 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">Help</h1>
+          <h3 style="text-align:center">帮助</h3>
+
+          <p style="font-weight:bold">1.Cluster集群</p>
+          <p style="text-indent:2em">1）支持多集群操作。</p>
+          <p style="text-indent:2em">2）每个集群只能包含1个权威节点，边缘节点建议不超过4个，且同一集群内权威和边缘最好在同一VPC，缓存节点没有上限。</p>
+          <p style="text-indent:2em">3）注意在老集群存在记录的情况下，新部署集群并不会自动同步记录，需要手工同步。</p>
+
+          <p style="font-weight:bold">2.Server服务器</p>
+          <p style="text-indent:2em">1）Server包含权威节点、边缘节点和缓存节点。</p>
+          <p style="text-indent:2em">2）权威节点：只做权威服务，不做递归和转发服务。</p>
+          <p style="text-indent:2em">3）边缘节点：权威服务、转发服务，递归服务。</p>
+          <p style="text-indent:2em">4）缓存节点：转发服务，递归服务。</p>
+
+          <p style="font-weight:bold">3.View视图</p>
+          <p style="text-indent:2em">1）SmartDNS支持视图。</p>
+          <p style="text-indent:2em">2）在视图-管理-详细，可以查到视图对应的Key。</p>
+          <p style="text-indent:2em">3）目前版本在web界面只是展示，操作并不会在服务器端生效，需在服务器端配置。</p>
+
+          <p style="font-weight:bold">4.Zone域</p>
+          <p style="text-indent:2em">1）域可以关联多个视图。</p>
+          <p style="text-indent:2em">2）目前版本在web界面只是展示，操作并不会在服务器端生效，需在服务器端配置。</p>
+
+          <p style="font-weight:bold">5.Record记录</p>
+          <p style="text-indent:2em">1）支持记录增加、导入、导出、备注等功能。</p>
+          <p style="text-indent:2em">2）单条记录的增加和记录备注的操作是分开的。</p>
+
+          <p style="font-weight:bold">6.Audit审计</p>
+          <p style="text-indent:2em">1）查看操作DNS记录。</p>
+
+          <p style="font-weight:bold">7.注意事项</p>
+          <p style="text-indent:2em">1）控制台Cluster、Server、View、Zone相关操作只做展示，需要在DNS服务器手工配置，但是权威节点IP地址必须正确。</p>
+          <p style="text-indent:2em">2）集群内，权威节点和数据库的数据一致性。</p>
+          <p style="text-indent:2em">3）集群间，权威节点和和权威节点的数据一致性。</p>
+          <p style="text-indent:2em">4）跟公司DNS的数据一致性。</p>
+
+          <p style="font-weight:bold">8.SmartDNS架构方案</p>
+          <img src="/static/images/SmartDNS_arch.png"  alt="SmartDNS架构" width="600"/>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

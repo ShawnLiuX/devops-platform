@@ -1,0 +1,56 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">Server</h1>
+          <h3 style="text-align:center">服务器</h3>
+          <a href="{% url 'add_server' %}"><button type="button" class="btn btn-default">增加服务器</button></a><br><br>
+          
+          <table id="table_server" class="display">
+            <thead>
+              <tr>
+                <th><font color="blue">集群</font></th>
+                <th><font color="blue">类型</font></th>
+                <th><font color="blue">IP</font></th>
+                <th><font color="blue">描述</font></th>
+                <th style="width:200px"><font color="blue">管理</font></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% load displayName %}
+            {% for result in results %}
+              <tr>
+                <td><strong>{{ result.cluster }}</strong></td>
+                <td><strong>{{ result|sname_display }}</strong></td>
+                <td><strong>{{ result.ip }}</strong></td>
+                <td><strong>{{ result.sremark }}</strong></td>
+                <td>
+                  <a href="{% url 'edit_server' result.id %}">修改</a>
+                  <a href="{% url 'delete_server' result.id %}">删除</a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

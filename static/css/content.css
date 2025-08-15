@@ -1,0 +1,58 @@
+@font-face {
+        font-family: 'aDaughter';
+        src: url('../fonts/ArchitectsDaughter.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+@font-face {
+        font-family: 'pcandal';
+        src: url('../fonts/Candal.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+@font-face {
+        font-family: 'verase';
+        src: url('../fonts/VeraSe.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+/*##########################################################*/
+#four_cols *
+{
+        margin-top: 20px;
+}
+#four_cols .btn
+{
+        margin-bottom: 20px;
+        font-size: 12px;
+}
+#four_cols div
+{
+        text-align: center;
+        padding: 20px;
+}
+#four_cols div:hover
+{
+        background-color: #f7f7f7 ;
+/*      border-bottom: 2px solid #f0f0f0; */
+}
+#four_cols h2
+{
+        font-size: 20px;
+        font-family: candal,pcandal,"Times New Roman", Verdana, sans-serif;
+}
+#four_cols p
+{
+        color: #7e7e7e;
+        font-size: 12px;
+        /*      new added 20151222 */
+        line-height: 20px;
+        height: 40px;
+        overflow: hidden;
+}
+#four_cols .btn-default
+{
+        background-color: #000;
+        color: white;
+}
+/*##########################################################*/

@@ -1,0 +1,63 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">Record</h1>
+          <h3 style="text-align:center">记录</h3>
+          <h3>域: {{ zone }}</h3>
+          <h4>视图: {{ view }}</h4>
+          <a href="{% url 'add_record' zone.id view.id %}"><button type="button" class="btn btn-default">增加记录</button></a>
+          <a href="{% url 'input_record' zone.id view.id %}"><button type="button" class="btn btn-default">导入记录</button></a>
+          <a href="{% url 'output_record' zone.id view.id %}"><button type="button" class="btn btn-default">导出记录</button></a><br><br>
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th><font color="blue">主机记录</font></th>
+                <th><font color="blue">记录类型</font></th>
+                <th><font color="blue">记录值</font></th>
+                <th><font color="blue">TTL(s)</font></th>
+                <th><font color="blue">解析范围</font></th>
+                <th><font color="blue">备注</font></th>
+                <th style="width:200px"><font color="blue">管理</font></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for result in results %}
+              <tr>
+                <td><strong>{{ result.rname }}</strong></td>
+                <td><strong>{{ result.rdtype }}</strong></td>
+                <td><strong>{{ result.rdata }}</strong></td>
+                <td><strong>{{ result.ttl }}</strong></td>
+                <td><strong>{{ result.view }}</strong></td>
+                <td><strong>{{ result.rremark }}</strong></td>
+                <td>
+                  <a href="{% url 'edit_record' zone.id view.id result.id %}">修改</a>
+                  <a href="{% url 'delete_record' zone.id view.id result.id %}">删除</a>
+                  <a href="{% url 'record_note' zone.id view.id result.id %}">备注</a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

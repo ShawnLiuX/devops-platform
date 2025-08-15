@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Server</title>
+    <link rel="stylesheet" type="text/css" href="/static/DataTables-1.10.15/media/css/jquery.dataTables.css">
+    
+    <script type="text/javascript" charset="utf8" src="/static/DataTables-1.10.15/media/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf8" src="/static/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+</head>
+
+    <script>
+      $(document).ready( function () {
+        $('#table_id').DataTable();
+      } );
+    </script>
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <!--<h1 class="page-header">Server</h1>-->
+          <h1 style="text-align:center">Record</h1>
+          <h3 style="text-align:center">记录</h3>
+          <h3>域: {{ zone }}</h3>
+          <h4>视图: {{ view }}</h4>
+          <a href="{% url 'add_record' zone_id view_id %}"><button type="button" class="btn btn-default">填加记录</button></a>
+          <table id="table_id" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th><font color="blue">主机记录</font></th>
+                <th><font color="blue">记录类型</font></th>
+                <th><font color="blue">记录值</font></th>
+                <th><font color="blue">TTL(s)</font></th>
+                <th><font color="blue">解析范围</font></th>
+                <th><font color="blue">owner</font></th>
+                <th style="width:200px"><font color="blue">管理</font></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for result in results %}
+              <tr>
+                <td><strong>{{ result.rname }}</strong></td>
+                <td><strong>{{ result.rdtype }}</strong></td>
+                <td><strong>{{ result.rdata }}</strong></td>
+                <td><strong>{{ result.ttl }}</strong></td>
+                <td><strong>{{ result.view }}</strong></td>
+                <td><strong>{{ result.rremark }}</strong></td>
+                <td>
+                  <a href="{% url 'edit_record' zone_id view_id result.rname result.rdtype result.rdata result.ttl result.rremark %}">修改</a>
+                  <a href="{% url 'delete_record' zone_id view_id result.rname result.rdtype result.rdata result.ttl result.rremark %}">删除</a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+</html>

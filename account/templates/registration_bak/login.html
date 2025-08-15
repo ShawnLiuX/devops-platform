@@ -1,0 +1,27 @@
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <form class="form-signin" action="{% url 'login' %}" method="post">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            {{ form.as_p }}
+            {% csrf_token %}
+            <!--<input type="hidden" name="next" value="{{ next }}">
+            <p><input type="submit" value="Log-in"></p>-->
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br>
+            <p align="center"><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
+        </form>
+
+    </div>
+
+{% endblock %}

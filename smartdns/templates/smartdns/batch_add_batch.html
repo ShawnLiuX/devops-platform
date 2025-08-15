@@ -1,0 +1,40 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">{{ item_en }}</h1>
+          <h3 style="text-align:center">{{ item_ch }}</h3>
+          
+          <center>
+            <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <table>
+                {{ form.as_p }}
+              </table>
+              <input class="btn btn-primary" type="submit" value="提交">
+            </form>
+          </center>
+          <p style="font-weight:bold">温馨提示：</p>
+          <p>1、上传文件格式只支持xls，大小不超过2MB。</p>
+          <p>2、每次最多可以导入500条解析记录。</p>
+          <p>3、请下载Excel文件, 按照格式填写域名信息, 上传导入。<a href="/static/files/excel/template.xls">点击下载模板</a></p>
+      </div>
+    </div>
+{% endblock %}
+

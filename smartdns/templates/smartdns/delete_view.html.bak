@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Server</title>
+</head>
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <!--<h1 class="page-header">Server</h1>-->
+          <h1 style="text-align:center">{{ item_en }}</h1>
+          <h3 style="text-align:center">{{ item_ch }}</h3>
+          
+          <center>
+            <form action="" method="post">
+              {% csrf_token %}
+              <h4 style="text-align:center">删除 {{ view.vname }} ?</h4>
+              <input class="btn btn-primary" type="submit" value="删除">
+            </form>
+          </center>
+
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+</html>

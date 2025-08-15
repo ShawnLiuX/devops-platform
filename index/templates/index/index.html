@@ -1,0 +1,161 @@
+{% extends "index_base.html" %}
+
+{% block body %}
+    <section class="container" id="four_cols">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/autoupgrade.png" alt="" />
+                <h2>运维自动化平台</h2>
+                <p>自开发版本自助发布平台，包含前端静态及后端java项目以及ansible commandline。</p>
+                <!--<a href="/homepage/" class="btn btn-default">old</a>-->
+                <a href="/home/" class="btn btn-default">Go</a>
+        </div>
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/autoupgrade.png" alt="" />
+                <h2>新版运维自动化平台</h2>
+                <p>自开发版本自助发布平台，包含前端静态及后端java项目以及ansible commandline。</p>
+                <a href="/home/" class="btn btn-default">Go</a>
+        </div>-->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/jumpserver.png" alt="" />
+                <h2>堡垒机</h2>
+                <p>基于jumpserver开源框架的堡垒机（跳板机）管理，认证，授权，审计。</p>
+                <!--<a href="/jumpserver/" class="btn btn-default">old</a>-->
+                <a href="/jumpserver_new/" class="btn btn-default">Go</a>
+        </div>
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/assets.png" alt="" />
+                <h2>资产库</h2>
+                <p>资产平台，记录服务的详细信息，和运维发布交互调用</p>
+                <a href="/assets" class="btn btn-default">Go</a>
+        </div>-->
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/jumpserver.png" alt="" />
+                <h2>新版堡垒机</h2>
+                <p>基于jumpserver开源框架的堡垒机（跳板机）管理，认证，授权，审计。</p>
+                <a href="/jumpserver_new/" class="btn btn-default">Go</a>
+        </div>-->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/zabbix.png" alt="" />
+                <h2>zabbix</h2>
+                <p>运维zabbix监控平台，监控服务器性能、项目可用性</p>
+                <!-- <a href="/zabbix/" class="btn btn-default">北研</a> -->
+                <a href="/zabbix/" class="btn btn-default">Go</a>
+        </div>
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/thinkcloud.png" alt="" />
+                <h2>ThinkCloud</h2>
+                <p>基于openstack构建的联想私有云平台，主要用于开发环境使用</p>
+                <a href="/openstack/" class="btn btn-default">Go</a>
+        </div>-->
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/vmware.png" alt="" />
+                <h2>VMware</h2>
+                <p>联想专区VMware平台，主要用于生产、预生产和测试环境使用</p>
+                <a href="/vmware/" class="btn btn-default">Go</a>
+        </div>-->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/elasticsearch.png" alt="" />
+                <h2>ELK</h2>
+                <p>基于elasticsearch + logstash + kanbana的日志收集系统</p>
+                <a href="/elk/" class="btn btn-default">Go</a>
+        </div>
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/sql.png" alt="" />
+                <h2>sql审核</h2>
+                <p>二次开发的sql审核平台，SQL自动审核、上线、备份以及回滚</p>
+                <a href="/sqlaudit/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/dbmonitor.png" alt="" />
+                <h2>db监控</h2>
+                <p>监控数据库的可靠性和稳定性，发现DB的性能瓶颈</p>
+                <a href="/dbmonitor/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/phpmyadmin.png" alt="" />
+                <h2>phpMyAdmin</h2>
+                <p>数据库管理工具，让管理者可用Web接口管理MySQL数据库.</p>
+                <a href="/phpmyadmin/" class="btn btn-default">Go</a>
+        </div>-->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/jenkins.png" alt="" />
+                <h2>jenkins</h2>
+                <p>基于jenkins，dtc团队java项目持续集成的自动化系统</p>
+                <a href="/jenkins/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/gitlab.png" alt="" />
+                <h2>gitlab</h2>
+                <p>基于gitlab，dtc团队的代码管理系统，支持itcode登录</p>
+                <a href="http://git.lefile.cn/users/sign_in" class="btn btn-default">Go</a>
+        </div>
+        <!--<div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/nexus.png" alt="" />
+                <h2>nexus</h2>
+                <p>基于nexus搭建的maven私服</p>
+                <a href="http://nexus.lenovo.com/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/sonarqube.png" alt="" />
+                <h2>SonarQube</h2>
+                <p>SonarQube代码质量管理平台</p>
+                <a href="/sonarqube/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/checkmarx.png" alt="" />
+                <h2>checkmarx</h2>
+                <p>checkmarx代码安全检测工具</p>
+                <a href="/checkmarx/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/jira.png" alt="" />
+                <h2>jira</h2>
+                <p>dtc团队的任务流程管理系统，支持itcode登录</p>
+                <a href="http://jira.lefile.cn/" class="btn btn-default">Go</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/confluence.png" alt="" />
+                <h2>confluence</h2>
+                <p>dtc团队的wiki文档管理系统，支持itcode登录</p>
+                <a href="http://wiki.lefile.cn/" class="btn btn-default">Go</a>
+
+        </div>-->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/openmgr.png" alt="" />
+                <h2>Open Admin</h2>
+                <p>公共开放平台</p>
+                <a href="/openapi_dev/" class="btn btn-default">DEV</a>
+                <a href="/openapi_uat/" class="btn btn-default">UAT</a>
+                <a href="/openapi_pre/" class="btn btn-default">PRE</a>
+                <a href="/openapi_prd/" class="btn btn-default">PRD</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/dubbo.png" alt="" />
+                <h2>dubbo monitor</h2>
+                <p>dubbo监控平台</p>
+                <a href="/dubbomonitor_dev/" class="btn btn-default">DEV</a>
+                <a href="/dubbomonitor_uat/" class="btn btn-default">UAT</a>
+                <a href="/dubbomonitor_pre/" class="btn btn-default">PRE</a>
+                <a href="/dubbomonitor_prd/" class="btn btn-default">PRD</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/dubbo.png" alt="" />
+                <h2>dubbo admin</h2>
+                <p>dubbo管理平台</p>
+                <a href="/dubboadmin_dev/" class="btn btn-default">DEV</a>
+                <a href="/dubboadmin_uat/" class="btn btn-default">UAT</a>
+                <a href="/dubboadmin_pre/" class="btn btn-default">PRE</a>
+                <a href="/dubboadmin_prd/" class="btn btn-default">PRD</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+                <img src="/static/i_images/kafka.png" alt="" />
+                <h2>Kafka Monitor</h2>
+                <p>公共ZK-Kafka监控平台</p>
+                <a href="/kafkamonitor_dev/" class="btn btn-default">DEV</a>
+                <a href="/kafkamonitor_uat/" class="btn btn-default">UAT</a>
+                <a href="/kafkamonitor_pre/" class="btn btn-default">PRE</a>
+                <a href="/kafkamonitor_prd/" class="btn btn-default">PRD</a>
+                <a href="/kafkamonitor_elk/" class="btn btn-default">ELK</a>
+        </div>
+    </section>
+{% endblock %}

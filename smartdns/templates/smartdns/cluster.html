@@ -1,0 +1,51 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">Cluster</h1>
+          <h3 style="text-align:center">集群</h3>
+          <a href="{% url 'cluster_add' %}"><button type="button" class="btn btn-default">增加集群</button></a><br><br>
+          
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th><font color="blue">名称</font></th>
+                <th><font color="blue">描述</font></th>
+                <th style="width:200px"><font color="blue">管理</font></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for result in results %}
+              <tr>
+                <td><strong>{{ result.cname }}</strong></td>
+                <td><strong>{{ result.cremark }}</strong></td>
+                <td>
+                  <a href="{% url 'cluster_mod' result.id %}">修改</a>
+                  <a href="{% url 'cluster_del' result.id %}">删除</a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

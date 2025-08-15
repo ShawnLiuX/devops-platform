@@ -1,0 +1,51 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">View</h1>
+          <h3 style="text-align:center">视图</h3><br><br>
+          
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th><font color="blue">名称</font></th>
+                <th><font color="blue">ACL</font></th>
+                <th><font color="blue">Key</font></th>
+                <th><font color="blue">描述</font></th>
+                <th style="width:200px"><font color="blue">管理</font></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>{{ result.vname }}</strong></td>
+                <td><strong>{{ result.acl }}</strong></td>
+                <td><strong>{{ result.secret }}</strong></td>
+                <td><strong>{{ result.vremark }}</strong></td>
+                <td>
+		  <a href="{% url 'view' %}">返回</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
+

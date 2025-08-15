@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>A jQuery Confirm Dialog Replacement with CSS3 | Tutorialzine Demo</title>
+
+<!-- Including the Cuprum font with @font-face from Google's webfont API  -->
+
+<link href='http://fonts.googleapis.com/css?family=Cuprum&subset=latin' rel='stylesheet' type='text/css'>
+<!--<link rel="stylesheet" type="text/css" href="css/styles.css" />-->
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.confirm.css" />
+
+</head>
+<body>
+
+<div id="page">
+
+        <div class="item">
+            <a href="{{ herf }}">
+      <!--      	<img src="http://cdn.tutorialzine.com/img/featured/1274.jpg" title="Coding a Rotating Image Slideshow w/ CSS3 and jQuery" alt="Coding a Rotating Image Slideshow w/ CSS3 and jQuery" width="620" height="340" />  -->
+            </a>
+            <div class="delete"></div>
+        </div>
+
+        <!-- Other "item" divs -->
+
+</div>
+
+<!-- Including jQuery and our jQuery Confirm plugin -->
+
+<script src="/static/js/jquery-2.1.0.jquery.min.js"></script>
+<script src="/static/js/jquery.confirm.js"></script>
+<script src="/static/js/script.js"></script>
+
+
+
+
+<div id="confirmOverlay">
+    <div id="confirmBox">
+
+        <h1>Error</h1>
+        <p><font color="red"> {{ message }} </p>
+		<p> Please press "OK" to back</p>
+
+        <div id="confirmButtons">
+            <a class="button blue" href="{{ href }}">OK<span></span></a>
+       <!--     <a class="button gray" href="#">No<span></span></a> -->
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+

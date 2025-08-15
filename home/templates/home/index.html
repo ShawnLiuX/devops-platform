@@ -1,0 +1,27 @@
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'home/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">WelCome</h1>
+          <h3>Hello, <font color="red">{{ request.user.username }}</font></h3>
+          <h3>Your Groups: </h3>
+          <h3>Your Permissions: </h3>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}

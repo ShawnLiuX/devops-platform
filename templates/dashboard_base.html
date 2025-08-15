@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Lenovo DevOps Dashboard</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/dashboard.css" rel="stylesheet">
+    <link href="/static/css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/bootstrap/css/signin.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    {% block navbar %}
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/jquery/jquery.min.js"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+    <script language="JavaScript">
+        function activeNavbar() {
+            var url, nav_url, side_url, nav_id, side_id;
+            url = window.location.pathname;
+            nav_url = url.split('/')[1];
+            side_url = url.split('/')[2];
+            nav_id = '#nav_' + nav_url;
+            side_id = '#side_' + side_url;
+            $('#id_nav_ul_navbar li.active').removeClass('active');
+            $('#id_side_ul_navbar li.active').removeClass('active');
+            $(nav_id).addClass('active');
+            $(side_id).addClass('active');
+        };
+        activeNavbar();
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/static/DataTables-1.10.15/media/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="/static/DataTables-1.10.15/media/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf8" src="/static/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+    <script>
+      $(document).ready( function () {
+        $('#table_id').DataTable();
+        $('#table_audit').DataTable({
+            "order": [[ 1, "desc" ]]
+        });
+        $('#table_server').DataTable({
+            columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }]
+        });
+      } );
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+
+{% extends "dashboard_base.html" %}
+
+{% block navbar %}
+    {% include 'dashboard_navbar.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'dashboard_footer.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block sidebar %}
+            {% include 'smartdns/sidebar.html' %}
+        {% endblock %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 style="text-align:center">{{ item_en }}</h1>
+          <h3 style="text-align:center">{{ item_ch }}</h3>
+          <h4 style="text-align:center">{{ view.vname }}</h4>
+          <h4 style="text-align:center">{{ zone.zname }}</h4>
+          
+          <center>
+            <form action="" method="post">
+              {% csrf_token %}
+              <table>
+                {{ form.as_table }}
+              </table>
+              <input class="btn btn-primary" type="submit" value="提交">
+            </form>
+          </center>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
